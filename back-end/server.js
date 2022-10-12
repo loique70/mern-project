@@ -1,9 +1,21 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const {logger} = require('./middleware/logger')
+const errorHandler = require('./middleware/errorHandler')
+const cookieParser = require('cookie-parser')
+const cors = require('cors')
+const corsOptions = require('./config/corsOptions')
 const PORT = process.env.PORT || 5000
 
- //On indique a express js que pour toute fichier statique(css, image) il doit suivre ce chemin
+app.use(logger)
+
+app.use(cors(corsOptions))
+
+app.use(express.json())
+
+app.use(cookieParser())
+//On indique a express js que pour toute fichier statique(css, image) il doit suivre ce chemin
 app.use('/', express.static(path.join(__dirname, '/public')))
 
 app.use('/', require('./routes/root'))
@@ -19,5 +31,7 @@ app.all('*', (req,res) => {
         res.type('txt').send('404 Not Found')
     }
 })
+
+app.use(errorHandler)
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
