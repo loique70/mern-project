@@ -14,7 +14,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
 
     //renvoies les information sans mot de passe
     const users = await User.find().select('-password').lean()
-    if(!users){
+    if(!users?.length){
         return res.status(400).json({ message: 'No users found'})
     }
     res.json(users)
@@ -23,7 +23,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
 // @desc Create new users
 // @route POST /users
 // @access Private
-const cerateNewUsers = asyncHandler(async (req, res) => {
+const createNewUsers = asyncHandler(async (req, res) => {
     const {username, password, roles} = req.body
 
     //Confirmation des donnees
@@ -122,7 +122,7 @@ const deleteUsers = asyncHandler(async (req, res) => {
 
 module.exports = {
     getAllUsers,
-    cerateNewUsers,
+    createNewUsers,
     updateUsers,
     deleteUsers
 }
