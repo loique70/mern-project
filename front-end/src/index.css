@@ -1,0 +1,78 @@
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body{
+  background-image: url("./img/image2.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  background-attachment: fixed;
+}
+
+.public{
+  font-size: 20px;
+  font-family: "sofia";
+  margin: 14px;
+}
+
+.line-hr{
+  height: 4px;
+  background-color: #fff;
+}
+
+header{
+  padding-bottom: 10px;
+}
+
+.public_main{
+  padding-top: 10px;
+  padding-bottom: 500px;
+}
+
+.public_addr{
+  padding-top: 10px;
+}
+
+a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.dash-container{
+  margin-left: 15px;
+}
+.dash-header{
+  margin-left: 15px;
+  padding-bottom: 4px;
+}
+
+.dash-footer{
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.p1{
+  margin-right: 12px;
+}
+
+.welcome{
+  line-height: 30px;
+  padding-bottom: 680px;
+}
+
+.dash-footer__button{
+  margin-right: 12px;
+}
+
+.note-container{
+  padding-bottom: 760px;
+}
+
+.user-container{
+  padding-bottom: 760px;
+}
