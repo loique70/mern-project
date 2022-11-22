@@ -29,7 +29,8 @@ app.use(cookieParser())
 app.use('/', express.static(path.join(__dirname, '/public')))
 
 app.use('/', require('./routes/root'))
-app.use('/', require('./routes/userRoutes'))
+app.use('/users', require('./routes/userRoutes'))
+app.use('/notes', require('./routes/notesRoutes'))
 
 //Cette route va permettre de tous les pages et routes inexitente que l'on va essayer de joindre.
 app.all('*', (req,res) => {
